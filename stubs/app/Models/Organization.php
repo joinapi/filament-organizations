@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Filament\Models\Contracts\HasAvatar;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Joinapi\FilamentOrganizations\Organization as FilamentOrganizationsOrganization;
 use Joinapi\FilamentOrganizations\Events\OrganizationCreated;
 use Joinapi\FilamentOrganizations\Events\OrganizationDeleted;
 use Joinapi\FilamentOrganizations\Events\OrganizationUpdated;
+use Joinapi\FilamentOrganizations\Organization as FilamentOrganizationsOrganization;
 
 class Organization extends FilamentOrganizationsOrganization implements HasAvatar
 {

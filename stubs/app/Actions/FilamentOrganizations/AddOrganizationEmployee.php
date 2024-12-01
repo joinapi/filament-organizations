@@ -13,7 +13,7 @@ use Joinapi\FilamentOrganizations\Contracts\AddsOrganizationEmployees;
 use Joinapi\FilamentOrganizations\Events\AddingOrganizationEmployee;
 use Joinapi\FilamentOrganizations\Events\OrganizationEmployeeAdded;
 use Joinapi\FilamentOrganizations\FilamentOrganizations;
-use Joinapi\FilamentOrganizations\Rules\Role;
+use Joinapi\FilamentWalloOrganizations\Rules\Role;
 
 class AddOrganizationEmployee implements AddsOrganizationEmployees
 {

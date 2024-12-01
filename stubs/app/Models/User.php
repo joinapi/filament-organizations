@@ -12,15 +12,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
-use Laravel\Sanctum\HasApiTokens;
 use Joinapi\FilamentOrganizations\HasOrganizations;
 use Joinapi\FilamentOrganizations\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements FilamentUser, HasAvatar, HasDefaultTenant, HasTenants
 {
     use HasApiTokens;
-    use HasOrganizations;
     use HasFactory;
+    use HasOrganizations;
     use HasProfilePhoto;
     use Notifiable;
 

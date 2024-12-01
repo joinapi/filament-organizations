@@ -11,6 +11,7 @@ use App\Actions\FilamentOrganizations\RemoveOrganizationEmployee;
 use App\Actions\FilamentOrganizations\UpdateOrganizationName;
 use App\Actions\FilamentOrganizations\UpdateUserPassword;
 use App\Actions\FilamentOrganizations\UpdateUserProfileInformation;
+use App\Models\Organization;
 use App\Models\Organizations;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -32,6 +33,8 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joinapi\FilamentOrganizations\FilamentOrganizations;
 use Joinapi\FilamentOrganizations\Pages\Auth\Login;
 use Joinapi\FilamentOrganizations\Pages\Auth\Register;
+use Joinapi\FilamentOrganizations\Pages\Organization\CreateOrganization;
+use Joinapi\FilamentOrganizations\Pages\Organization\OrganizationSettings;
 use Joinapi\FilamentOrganizations\Pages\Organizations\OrganizationsSettings;
 use Joinapi\FilamentOrganizations\Pages\Organizations\CreateOrganizations;
 use Joinapi\FilamentOrganizations\Pages\User\Profile;
@@ -41,8 +44,8 @@ class FilamentOrganizationsServiceProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('organizations')
-            ->path('organizations')
+            ->id('organization')
+            ->path('organization')
             ->default()
             ->login(Login::class)
             ->passwordReset()
@@ -50,7 +53,7 @@ class FilamentOrganizationsServiceProvider extends PanelProvider
             ->plugin(
                 FilamentOrganizations::make()
                     ->userPanel('party')
-                    ->switchCurrentOrganizations()
+                    ->switchCurrentOrganization()
                     ->updateProfileInformation()
                     ->updatePasswords()
                     ->manageBrowserSessions()
@@ -66,11 +69,11 @@ class FilamentOrganizationsServiceProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->tenant(Organizations::class)
-            ->tenantProfile(OrganizationsSettings::class)
-            ->tenantRegistration(CreateOrganizations::class)
-            ->discoverResources(in: app_path('Filament/Organizations/Resources'), for: 'App\\Filament\\Organizations\\Resources')
-            ->discoverPages(in: app_path('Filament/Organizations/Pages'), for: 'App\\Filament\\Organizations\\Pages')
+            ->tenant(Organization::class)
+            ->tenantProfile(OrganizationSettings::class)
+            ->tenantRegistration(CreateOrganization::class)
+            ->discoverResources(in: app_path('Filament/Organization/Resources'), for: 'App\\Filament\\Organization\\Resources')
+            ->discoverPages(in: app_path('Filament/Organization/Pages'), for: 'App\\Filament\\Organizations\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
@@ -113,12 +116,12 @@ class FilamentOrganizationsServiceProvider extends PanelProvider
         FilamentOrganizations::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         FilamentOrganizations::updateUserPasswordsUsing(UpdateUserPassword::class);
 
-        FilamentOrganizations::createOrganizationsUsing(CreateOrganizations::class);
-        FilamentOrganizations::updateOrganizationsNamesUsing(UpdateOrganizationsName::class);
-        FilamentOrganizations::addOrganizationsEmployeesUsing(AddOrganizationsEmployee::class);
-        FilamentOrganizations::inviteOrganizationsEmployeesUsing(InviteOrganizationsEmployee::class);
-        FilamentOrganizations::removeOrganizationsEmployeesUsing(RemoveOrganizationsEmployee::class);
-        FilamentOrganizations::deleteOrganizationsUsing(DeleteOrganizations::class);
+        FilamentOrganizations::createOrganizationsUsing(CreateOrganization::class);
+        FilamentOrganizations::updateOrganizationNamesUsing(UpdateOrganizationName::class);
+        FilamentOrganizations::addOrganizationEmployeesUsing(AddOrganizationEmployee::class);
+        FilamentOrganizations::inviteOrganizationEmployeesUsing(InviteOrganizationEmployee::class);
+        FilamentOrganizations::removeOrganizationEmployeesUsing(RemoveOrganizationEmployee::class);
+        FilamentOrganizations::deleteOrganizationsUsing(DeleteOrganization::class);
         FilamentOrganizations::deleteUsersUsing(DeleteUser::class);
     }
 
