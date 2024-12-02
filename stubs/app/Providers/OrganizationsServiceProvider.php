@@ -12,7 +12,6 @@ use App\Actions\FilamentOrganizations\UpdateOrganizationName;
 use App\Actions\FilamentOrganizations\UpdateUserPassword;
 use App\Actions\FilamentOrganizations\UpdateUserProfileInformation;
 use App\Models\Organization;
-use App\Models\Organizations;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -33,13 +32,11 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joinapi\FilamentOrganizations\FilamentOrganizations;
 use Joinapi\FilamentOrganizations\Pages\Auth\Login;
 use Joinapi\FilamentOrganizations\Pages\Auth\Register;
-use Joinapi\FilamentOrganizations\Pages\Organization\CreateOrganization;
 use Joinapi\FilamentOrganizations\Pages\Organization\OrganizationSettings;
-use Joinapi\FilamentOrganizations\Pages\Organizations\OrganizationsSettings;
-use Joinapi\FilamentOrganizations\Pages\Organizations\CreateOrganizations;
+use Joinapi\FilamentOrganizations\Pages\Organization\CreateOrganization;
 use Joinapi\FilamentOrganizations\Pages\User\Profile;
 
-class FilamentOrganizationsServiceProvider extends PanelProvider
+class OrganizationsServiceProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
@@ -49,10 +46,10 @@ class FilamentOrganizationsServiceProvider extends PanelProvider
             ->default()
             ->login(Login::class)
             ->passwordReset()
-            ->homeUrl(static fn (): string => url(Pages\Dashboard::getUrl(panel: 'Organizations', tenant: Auth::user()?->personalOrganizations())))
+            ->homeUrl(static fn (): string => url(Pages\Dashboard::getUrl(panel: 'organization', tenant: Auth::user()?->personalOrganization())))
             ->plugin(
                 FilamentOrganizations::make()
-                    ->userPanel('party')
+                    ->userPanel('admin')
                     ->switchCurrentOrganization()
                     ->updateProfileInformation()
                     ->updatePasswords()
@@ -73,7 +70,7 @@ class FilamentOrganizationsServiceProvider extends PanelProvider
             ->tenantProfile(OrganizationSettings::class)
             ->tenantRegistration(CreateOrganization::class)
             ->discoverResources(in: app_path('Filament/Organization/Resources'), for: 'App\\Filament\\Organization\\Resources')
-            ->discoverPages(in: app_path('Filament/Organization/Pages'), for: 'App\\Filament\\Organizations\\Pages')
+            ->discoverPages(in: app_path('Filament/Organization/Pages'), for: 'App\\Filament\\Organization\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])

@@ -45,7 +45,7 @@ use Joinapi\FilamentOrganizations\Pages\Organization\OrganizationSettings;
 use Joinapi\FilamentOrganizations\Pages\Organization\CreateOrganization;
 use Joinapi\FilamentOrganizations\Pages\User\Profile;
 
-class FilamentOrganizationsServiceProvider extends PanelProvider
+class OrganizationsServiceProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
