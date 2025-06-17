@@ -23,7 +23,7 @@ class OrganizationFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique()->organization(),
+            'name' => $this->faker->unique(),
             'user_id' => User::factory(),
             'personal_organization' => true,
         ];
