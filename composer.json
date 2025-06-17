@@ -1,6 +1,6 @@
 {
     "name": "joinapi/filament-organizations",
-    "description": "A comprehensive Laravel authentication and authorization system designed for Filament, focusing on multi-tenant company management.",
+    "description": "A comprehensive Laravel authentication and authorization system designed for Filament, focusing on multi-tenant organization management.",
     "keywords": [
         "joinapi",
         "filament-organizations",
@@ -54,7 +54,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Joinapi\\FilamentOrganizations\\OrganizationsServiceProvider"
+                "Joinapi\\FilamentOrganizations\\FilamentOrganizationsServiceProvider"
             ]
         }
     },
