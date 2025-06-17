@@ -62,12 +62,9 @@ class UserFactory extends Factory
 
         return $this->has(
             Organization::factory()
-                ->state(fn (array $attributes, User $user) => [
-                    'name' => $user->name . ' Organization',
-                    'user_id' => $user->id,
-                    'personal_organization' => true,
-                ])
-                ->when(is_callable($callback), $callback),
+                ->state(function (array $attributes, User $user) {
+                    return ['name' => $user->name . ' Organization', 'user_id' => $user->id, 'personal_organization' => true];
+                }),
             'ownedOrganizations'
         );
     }
