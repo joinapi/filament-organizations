@@ -13,8 +13,8 @@ use App\Actions\FilamentOrganizations\InviteOrganizationEmployee;
 use App\Actions\FilamentOrganizations\RemoveOrganizationEmployee;
 use App\Actions\FilamentOrganizations\ResolveSocialiteUser;
 use App\Actions\FilamentOrganizations\SetUserPassword;
-use App\Actions\FilamentOrganizations\UpdateOrganizationName;
 use App\Actions\FilamentOrganizations\UpdateConnectedAccount;
+use App\Actions\FilamentOrganizations\UpdateOrganizationName;
 use App\Actions\FilamentOrganizations\UpdateUserPassword;
 use App\Actions\FilamentOrganizations\UpdateUserProfileInformation;
 use App\Models\Organization;
@@ -41,11 +41,11 @@ use Joinapi\FilamentOrganizations\Enums\Provider;
 use Joinapi\FilamentOrganizations\FilamentOrganizations;
 use Joinapi\FilamentOrganizations\Pages\Auth\Login;
 use Joinapi\FilamentOrganizations\Pages\Auth\Register;
-use Joinapi\FilamentOrganizations\Pages\Organization\OrganizationSettings;
 use Joinapi\FilamentOrganizations\Pages\Organization\CreateOrganization;
+use Joinapi\FilamentOrganizations\Pages\Organization\OrganizationSettings;
 use Joinapi\FilamentOrganizations\Pages\User\Profile;
 
-class OrganizationsServiceProvider extends PanelProvider
+class FilamentOrganizationsServiceProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {

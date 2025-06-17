@@ -7,15 +7,15 @@ use Filament\Events\TenantSet;
 use Filament\Panel;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Event;
-use Livewire\Livewire;
 use Joinapi\FilamentOrganizations\Contracts\CreatesConnectedAccounts;
 use Joinapi\FilamentOrganizations\Contracts\CreatesUserFromProvider;
 use Joinapi\FilamentOrganizations\Contracts\HandlesInvalidState;
 use Joinapi\FilamentOrganizations\Contracts\UpdatesConnectedAccounts;
 use Joinapi\FilamentOrganizations\Http\Controllers\OAuthController;
 use Joinapi\FilamentOrganizations\Listeners\SwitchCurrentOrganization;
-use Joinapi\FilamentOrganizations\Pages\Organization\OrganizationSettings;
 use Joinapi\FilamentOrganizations\Pages\Organization\CreateOrganization;
+use Joinapi\FilamentOrganizations\Pages\Organization\OrganizationSettings;
+use Livewire\Livewire;
 
 class FilamentOrganizations implements Plugin
 {
@@ -24,9 +24,9 @@ class FilamentOrganizations implements Plugin
     use Concerns\Base\HasBaseModels;
     use Concerns\Base\HasBaseProfileComponents;
     use Concerns\Base\HasBaseProfileFeatures;
-    use Concerns\Base\HasOrganizationFeatures;
     use Concerns\Base\HasModals;
     use Concerns\Base\HasNotifications;
+    use Concerns\Base\HasOrganizationFeatures;
     use Concerns\Base\HasPanels;
     use Concerns\Base\HasPermissions;
     use Concerns\Base\HasRoutes;

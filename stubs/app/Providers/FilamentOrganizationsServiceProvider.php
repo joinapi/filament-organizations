@@ -36,7 +36,7 @@ use Joinapi\FilamentOrganizations\Pages\Organization\OrganizationSettings;
 use Joinapi\FilamentOrganizations\Pages\Organization\CreateOrganization;
 use Joinapi\FilamentOrganizations\Pages\User\Profile;
 
-class OrganizationsServiceProvider extends PanelProvider
+class FilamentOrganizationsServiceProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
@@ -81,7 +81,7 @@ class OrganizationsServiceProvider extends PanelProvider
                     ->url(static fn () => route(Profile::getRouteName(panel: 'admin'))),
             ])
             ->authGuard('web')
-            ->discoverWidgets(in: app_path('Filament/Organizations/Widgets'), for: 'App\\Filament\\Organizations\\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Organization/Widgets'), for: 'App\\Filament\\Organization\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,

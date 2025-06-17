@@ -6,11 +6,11 @@ use Filament\Notifications\Notification;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
-use Livewire\WithFileUploads;
 use Joinapi\FilamentOrganizations\Contracts\UpdatesUserProfileInformation;
 use Joinapi\FilamentOrganizations\FilamentOrganizations;
 use Joinapi\FilamentOrganizations\Pages\User\Profile;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class UpdateProfileInformationForm extends Component
 {

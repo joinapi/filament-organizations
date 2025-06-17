@@ -3,16 +3,16 @@
 namespace Joinapi\FilamentOrganizations;
 
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
-use Joinapi\FilamentOrganizations\Http\Livewire\OrganizationEmployeeManager;
 use Joinapi\FilamentOrganizations\Http\Livewire\ConnectedAccountsForm;
 use Joinapi\FilamentOrganizations\Http\Livewire\DeleteOrganizationForm;
 use Joinapi\FilamentOrganizations\Http\Livewire\DeleteUserForm;
 use Joinapi\FilamentOrganizations\Http\Livewire\LogoutOtherBrowserSessionsForm;
+use Joinapi\FilamentOrganizations\Http\Livewire\OrganizationEmployeeManager;
 use Joinapi\FilamentOrganizations\Http\Livewire\SetPasswordForm;
 use Joinapi\FilamentOrganizations\Http\Livewire\UpdateOrganizationNameForm;
 use Joinapi\FilamentOrganizations\Http\Livewire\UpdatePasswordForm;
 use Joinapi\FilamentOrganizations\Http\Livewire\UpdateProfileInformationForm;
+use Livewire\Livewire;
 
 class FilamentOrganizationsServiceProvider extends ServiceProvider
 {
