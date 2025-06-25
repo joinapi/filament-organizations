@@ -113,7 +113,7 @@ class InstallCommand extends Command
         $this->configureSession();
 
         $this->callSilent('vendor:publish', [
-            '--tag' => 'filament-organizations-organization-migrations',
+            '--tag' => 'filament-organizations-migrations',
             '--force' => true,
         ]);
 

@@ -84,13 +84,12 @@ class FilamentOrganizationsServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../database/migrations/0001_01_01_000000_create_users_table.php' => database_path('migrations/0001_01_01_000000_create_users_table.php'),
-        ], 'filament-organizations-migrations');
-
-        $this->publishesMigrations([
             __DIR__ . '/../database/migrations/2020_05_21_100000_create_organizations_table.php' => database_path('migrations/2020_05_21_100000_create_organizations_table.php'),
             __DIR__ . '/../database/migrations/2020_05_21_200000_create_organization_user_table.php' => database_path('migrations/2020_05_21_200000_create_organization_user_table.php'),
             __DIR__ . '/../database/migrations/2020_05_21_300000_create_organization_invitations_table.php' => database_path('migrations/2020_05_21_300000_create_organization_invitations_table.php'),
-        ], 'filament-organizations-organization-migrations');
+            __DIR__ . '/../database/migrations/2025_06_19_045636_update_users_table.php' => database_path('migrations/2025_06_19_045636_update_users_table.php'),
+        ], 'filament-organizations-migrations');
+
 
         $this->publishesMigrations([
             __DIR__ . '/../database/migrations/2020_12_22_000000_create_connected_accounts_table.php' => database_path('migrations/2020_12_22_000000_create_connected_accounts_table.php'),
